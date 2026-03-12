@@ -1,0 +1,28 @@
+# Visual Studio Integration Files
+.vs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docuser
+
+# Unity-specific (if applicable)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Ll]ogs/
+[MemoryCaptures]/
+
+# Misc
+.DS_Store
+Thumbs.db

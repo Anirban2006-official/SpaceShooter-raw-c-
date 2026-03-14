@@ -1,7 +1,8 @@
 ﻿  main.cpp
-D:\OOP\space shooter\SpaceShooter\SpaceShooter\main.cpp(150,28): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
-D:\OOP\space shooter\SpaceShooter\SpaceShooter\main.cpp(169,28): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
-D:\OOP\space shooter\SpaceShooter\SpaceShooter\main.cpp(213,25): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
-D:\OOP\space shooter\SpaceShooter\SpaceShooter\main.cpp(220,25): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
-D:\OOP\space shooter\SpaceShooter\SpaceShooter\main.cpp(366,25): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
-  SpaceShooter.vcxproj -> D:\OOP\space shooter\SpaceShooter\x64\Debug\SpaceShooter.exe
+C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\SpaceShooter\main.cpp(152,28): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
+C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\SpaceShooter\main.cpp(171,28): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
+C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\SpaceShooter\main.cpp(215,25): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
+C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\SpaceShooter\main.cpp(222,25): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
+C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\SpaceShooter\main.cpp(368,25): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
+  LINK : C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\x64\Debug\SpaceShooter.exe not found or not built by the last incremental link; performing full link
+  SpaceShooter.vcxproj -> C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\x64\Debug\SpaceShooter.exe

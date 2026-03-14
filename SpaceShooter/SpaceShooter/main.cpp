@@ -10,8 +10,8 @@
 void gotoxy(int x, int y);
 void drawBoss();
 void eraseBoss();
-void bossShoot();        
-void updateBossBullets();  
+void bossShoot();
+bool updateBossBullets();
 void gameOverScreen();
 
 using namespace std;
@@ -75,38 +75,40 @@ void bossShoot() {
 	for (int i = 0; i < 10; i++) {
 		if (bossBulletFlag[i] == 0) {
 			bossBulletFlag[i] = 1;
-			bossBulletX[i] = bossX + 8; 
+			bossBulletX[i] = bossX + 8;
 			bossBulletY[i] = bossY + 3;
 			break;
 		}
 	}
 }
 
-void updateBossBullets() {
+bool updateBossBullets() {
 	for (int i = 0; i < 10; i++) {
 		if (bossBulletFlag[i]) {
-			
+
 			gotoxy(bossBulletX[i], bossBulletY[i]); cout << " ";
 
-			bossBulletY[i]++; 
+			bossBulletY[i]++;
 
-			
+
 			if (bossBulletY[i] > screen_height - 2) {
 				bossBulletFlag[i] = 0;
 			}
 			else {
-				
+
 				gotoxy(bossBulletX[i], bossBulletY[i]); cout << "V";
 
-				
+
 				if (bossBulletX[i] >= shipPos && bossBulletX[i] < shipPos + 4 && bossBulletY[i] >= 38) {
-					
-					gameOverScreen();
-					
+
+					return true;
+
+
 				}
 			}
 		}
 	}
+	return false;
 }
 
 
@@ -135,11 +137,11 @@ void drawBorder() {
 		for (int j = 0; j < 12; j++) {
 			gotoxy(0 + j, i);
 			cout << "±";
-			gotoxy(window_width-j, i);
+			gotoxy(window_width - j, i);
 			cout << "±";
 		}
 	}
-	
+
 }
 
 void genDestroyer(int ind) {
@@ -193,7 +195,7 @@ void resetDestroyer(int ind) {
 void drawTieAdvanced() {
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 4; j++) {
-			gotoxy(j + shipPos, i+38);
+			gotoxy(j + shipPos, i + 38);
 			cout << tieAdvanced[i][j];
 		}
 	}
@@ -231,14 +233,14 @@ void shoot() {
 			bulletY[i] = 37;
 			break;
 		}
-		
+
 	}
 }
 
 void collisionWithBullet() {
 	for (int i = 0; i < 20; i++) {
 		if (bulletFlag[i]) {
-			
+
 			if (bossFlag && bulletX[i] >= bossX && bulletX[i] <= bossX + 16 && bulletY[i] >= bossY && bulletY[i] <= bossY + 2) {
 				eraseBullet(i);
 				bulletFlag[i] = 0;
@@ -249,14 +251,14 @@ void collisionWithBullet() {
 					score += 20;
 				}
 			}
-			
+
 			else if (!bossFlag) {
 				for (int j = 0; j < 3; j++) {
 					if (bulletX[i] >= destroyerX[j] && bulletX[i] < destroyerX[j] + 4 && bulletY[i] >= destroyerY[j] && bulletY[i] < destroyerY[j] + 7) {
 						eraseBullet(i);
 						bulletFlag[i] = 0;
 						resetDestroyer(j);
-						score += 5; 
+						score += 5;
 					}
 				}
 			}
@@ -290,25 +292,25 @@ void gameOverScreen() {
 	gotoxy(window_width / 2 - 15, 13); cout << "                   Game Over                    ";
 	gotoxy(window_width / 2 - 15, 14); cout << "               Your Score : " << score;
 	gotoxy(window_width / 2 - 15, 15); cout << "         Press space to go to main menu         ";
-	
+
 	char key = 0;
 	while (key != 32) {
 		key = _getch();
 	}
-	
+
 }
 
 void theGame() {
 
 	int fireDelay = 0;
-
-	score = 0;                             
-	shipPos = window_width / 2;            
+	bossFlag = false;
+	score = 0;
+	shipPos = window_width / 2;
 	for (int i = 0; i < 20; i++) {
 		bulletFlag[i] = 0;
 	}
 
-	system("cls");                     
+	system("cls");
 
 	for (int i = 0; i < 3; i++) {
 		destroyerFlag[i] = true;
@@ -316,10 +318,10 @@ void theGame() {
 		genDestroyer(i);
 	}
 
-	
+
 
 	drawBorder();
-	
+
 	while (true) {
 		gotoxy(15, 0); cout << "SCORE: " << score << "      ";
 
@@ -335,7 +337,7 @@ void theGame() {
 		}
 
 		if (!bossFlag) {
-			
+
 			for (int i = 0; i < 3; i++) {
 				eraseDestroyer(i);
 				destroyerY[i]++;
@@ -347,7 +349,7 @@ void theGame() {
 		}
 		else {
 			eraseBoss();
-			bossX += bossDirection * 2; 
+			bossX += bossDirection * 2;
 			if (bossX > 170 || bossX < 20) bossDirection *= -1;
 			drawBoss();
 		}
@@ -358,7 +360,7 @@ void theGame() {
 			fireDelay = 0;
 		}
 
-		
+
 
 		drawTieAdvanced();
 
@@ -398,7 +400,7 @@ void theGame() {
 			break;
 		}
 
-		
+
 		int gameSpeed = 35 - (score / 5);
 		if (gameSpeed < 10) gameSpeed = 10;
 		Sleep(gameSpeed);
@@ -418,7 +420,7 @@ void theGame() {
 					shipPos += 4;
 				}
 			}
-			
+
 		}
 	}
 }
@@ -444,20 +446,20 @@ int main() {
 
 	setcursor(0, 0);
 	srand((unsigned)time(NULL));
-	
+
 	do {
 		system("cls");
 		menu();
-		char op = _getch(); 
+		char op = _getch();
 
 		if (op == '1') {
-			theGame(); 
+			theGame();
 		}
 		else if (op == '2') {
 			instruction();
 		}
 		else if (op == '3') {
-			exit(0); 
+			exit(0);
 		}
 
 	} while (true);

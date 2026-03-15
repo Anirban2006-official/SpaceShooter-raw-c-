@@ -4,5 +4,4 @@ C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShoo
 C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\SpaceShooter\main.cpp(215,25): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
 C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\SpaceShooter\main.cpp(222,25): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
 C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\SpaceShooter\main.cpp(368,25): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
-  LINK : C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\x64\Debug\SpaceShooter.exe not found or not built by the last incremental link; performing full link
   SpaceShooter.vcxproj -> C:\Users\Anirban\source\repos\Anirban2006-official\SpaceShooter-raw-c-\SpaceShooter\x64\Debug\SpaceShooter.exe

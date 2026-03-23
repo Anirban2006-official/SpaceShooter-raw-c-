@@ -15,7 +15,7 @@ A lightweight, arcade-style space shooter game built using raw C++. This project
 ## 🛠️ Built With
 
 - **Language:** C++
-- **Graphics Library:** *(e.g., SFML, SDL2, or Windows Console API)* - *Please specify which one you used here.*
+
 
 ## 🎮 How to Run
 

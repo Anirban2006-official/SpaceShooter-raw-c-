@@ -21,7 +21,7 @@ A lightweight, arcade-style space shooter game built using raw C++. This project
 
 ### Prerequisites
 
-Ensure you have a C++ compiler installed (like `g++`, `MSVC`, or `Clang`). If you are using a library like SDL or SFML, make sure the development headers are installed.
+Ensure you have a C++ compiler installed (like `g++`, `MSVC`, or `Clang`).
 
 ### Installation & Execution
 
